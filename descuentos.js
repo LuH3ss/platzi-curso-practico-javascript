@@ -33,37 +33,42 @@ const cupones = [
     "Cliente_Amex",
     "Cleinte_Visa",
     "Cliente_HSBC",
-]
+];
+
+const inputCupon = document.getElementById('inputCupon');
+const valorCupon = inputCupon.value;
+const inputPrice = document.getElementById('inputPrice');
+const valorPrecio = inputPrice.value;
+
+
 function priceCupon() {
 const inputCupon = document.getElementById('inputCupon');
-const valorCupon = inputCupon;
+const valorCupon = inputCupon.value;
 
 const inputPrice = document.getElementById('inputPrice');
-const valorPrecio = inputPrice;
+const valorPrecio = inputPrice.value;
+
+let descuento;
 
 
-
-    switch(valorCupon)
+switch(valorCupon)
 
 {
     case cupones[0]: 
-    const descuentoCupon = (valorPrecio * 15) / 100;
-     const resultC = document.getElementById('resultC');
-    resultC.innerText = 'El precio final de tu compra es de:$' + descuentoCupon;
+    descuento = 15;
     break;
     case cupones [1]: 
-    const descuentoCupon = (valorPrecio * 30) / 100;
-     const resultC = document.getElementById('resultC');
-    resultC.innerText = 'El precio final de tu compra es de:$' + descuentoCupon;
+    descuento = 30;
     break;
     case cupones [2]:
-        const descuentoCupon = (valorPrecio * 25) / 100;
-     const resultC = document.getElementById('resultC');
-    resultC.innerText = 'El precio final de tu compra es de:$' + descuentoCupon;
-    default: 
-    const resultC = document.getElementById('resultC');
-    resultC.innerText = 'Oops! Este cupon no eixte o no es válido';
+        descuento = 25;
+        break;
+   
 }
+
+   const precioConDescuento = calcularPrecioConDescuento(valorPrecio, descuento);
+   const resultC = document.getElementById('resultC');
+   resultC.innerText = 'El precio con el cupon ingresado es de:$' + precioConDescuento;
 
 }
 
